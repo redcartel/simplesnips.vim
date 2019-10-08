@@ -14,12 +14,12 @@
 "
 " TODO: If the need comes up, insert at current / correct indentation level.
 
-let s:simplesnipsDir="$HOME/.vim/snips"
+let g:simplesnipsDir="$HOME/.vim/snips"
 
 " list contents of g:simplesnipsDir for the -complete arg of command
 " TODO: windows compatibility
 fun s:LsSnips(A, L, P)
-    return system("ls 2> /dev/null" . s:simplesnipsDir)
+    return system("ls 2> /dev/null" . g:simplesnipsDir)
 endfun
 
 " do the magic
@@ -28,7 +28,7 @@ fun s:InsertSnip(snipname)
     let l:currentLineNum = line(".")
 
     " paste the file contents below the current line
-    execute(":r " . s:simplesnipsDir . a:snipname)
+    execute(":r " . g:simplesnipsDir . a:snipname)
 
     " replace <<FileSlug>> with the filename minus the extension
     " replace <<FileSlugLower>> with the slug in lowercase
