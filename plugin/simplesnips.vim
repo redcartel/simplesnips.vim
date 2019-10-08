@@ -21,7 +21,7 @@ endif
 " list contents of g:simplesnipsDir for the -complete arg of command
 " TODO: windows compatibility
 fun LsSnips(A, L, P)
-    return system("ls " . g:simplesnipsDir) . " 2> /dev/null"
+    return system("ls " . g:simplesnipsDir . " 2> /dev/null")
 endfun
 
 " do the magic
