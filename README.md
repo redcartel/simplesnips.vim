@@ -30,7 +30,7 @@ TODO: Insert at current indentation level
 
 TODO: Allow snippits organized in sub-folders
 
-TODO: Get it working on Windows (autocompletion function uses `system('ls')`)
+TODO: Test on different platforms
 
 TODO: Other improvements?
 
