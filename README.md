@@ -1,2 +1,42 @@
 # simplesnips.vim
-A very simple snippits system for vim
+
+by Carter Adams (https://github.com/redcartel/simplesnips.vim)
+
+Simple snippits. Add the following line to your config file:
+
+    `g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
+
+Then the command:
+
+    `:Sn snippitname`
+
+Will insert the text of the file `/path/to/your/snips/folder/snippitname` 
+into your code at the current line, or below your current line if the
+current line is not blank.
+
+Autocompletion of snippit names should be enabled.
+
+The only processing of snippit text is that the pattern `<<FileSlug>>` is
+replaced by the current file's filename without the extension. So for instance
+`class <<FileSlug>>` would become `class MyClass` when inserted into a file 
+called `MyClass.js`
+
+Similarly `<<FileSlugLower>>` is replaced by the name of the file in lowercase,
+minus the extension. So `myclass` in the above example.
+
+
+
+TODO: Insert at current indentation level
+
+TODO: Allow snippits organized in sub-folders
+
+TODO: Get it working on Windows (autocompletion function uses `system('ls')`)
+
+TODO: Other improvements?
+
+I don't want anything complicated like supporting the formats of other snippits
+plugins. This is for people who want a straightforward solution to writing a
+personal collection of templates in a simple format & use a plugin that doesn't
+pollute their omnicomplete.
+
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
