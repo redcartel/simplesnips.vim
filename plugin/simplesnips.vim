@@ -20,7 +20,7 @@ endif
 
 " list contents of g:simplesnipsDir for the -complete arg of command
 " TODO: windows compatibility
-fun s:LsSnips(A, L, P)
+fun LsSnips(A, L, P)
     return system("ls 2> /dev/null" . g:simplesnipsDir)
 endfun
 
@@ -50,4 +50,4 @@ fun s:InsertSnip(snipname)
 endfun
 
 " the command:
-command -nargs=1 -complete=custom,s:LsSnips Sn call s:InsertSnip(<q-args>)
+command -nargs=1 -complete=custom,LsSnips Sn call s:InsertSnip(<q-args>)
