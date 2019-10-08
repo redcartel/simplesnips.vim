@@ -14,7 +14,9 @@
 "
 " TODO: If the need comes up, insert at current / correct indentation level.
 
-let g:simplesnipsDir="$HOME/.vim/snips"
+if !exists("g:simplesnipsDir")
+    let g:simplesnipsDir="$HOME/.vim/snips"
+endif
 
 " list contents of g:simplesnipsDir for the -complete arg of command
 " TODO: windows compatibility
