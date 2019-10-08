@@ -21,7 +21,18 @@ endif
 " list contents of g:simplesnipsDir for the -complete arg of command
 " TODO: windows compatibility
 fun LsSnips(A, L, P)
-    return system("ls " . g:simplesnipsDir . " 2> /dev/null")
+    let l:result = ''
+    let l:regex = g:simplesnipsDir . '/\?\(.*\)'
+    for path in globpath(g:simplesnipsDir, '*', 0, 1)
+        let l:matches = matchlist(path, l:regex)
+        if len(l:matches) > 1 && strwidth(l:matches[1]) > 0
+            if len(l:result) > 0
+                let l:result = l:result . "\n"
+            endif
+            let l:result = l:result . l:matches[1]
+        endif
+    endfor
+    return l:result
 endfun
 
 " do the magic
@@ -31,9 +42,13 @@ fun s:InsertSnip(snipname)
 
     " paste the file contents below the current line
     try
-        execute(":r " . g:simplesnipsDir . a:snipname)
+        execute(":r " . globpath(g:simplesnipsDir, a:snipname))
     catch
-        echo "Snippit " . a:snipname . " not found"
+        if strwidth(LsSnips(0,0,0)) == 0
+            echo "Snippit directory " . g:simplesnipsDir . " does not exist or is empty. Be sure to set g:simplesnipsDir"
+        else
+            echo "Snippit " . a:snipname . " not found"
+        endif
         return
     endtry
 
