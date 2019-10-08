@@ -1,0 +1,46 @@
+simplesnips     [simplesnips]
+
+by Carter Adams (redcartel)
+
+usage:
+
+:Sn snippit-name
+
+Inserts the contents of the file snippit-name below the current cursor, if
+executed on a blank line, the blank line is removed
+
+config:
+
+In your config file:
+
+
+    let g:simplesnipsDir= $HOME . "/path/to/your/snips/dir/"
+
+
+You _must_ include the trailing "/"
+
+Snippits are plain text file. The only transformation that occurs is that the
+pattern <<FileSlug>> is replaced by the filename of the current file without
+its extension. <<FileSlugLower>> is the same but lowercase.
+
+Look at the following snippit:
+
+
+// lowercase slug: <<FileSlugLower>>
+
+export default class <<FileSlug>> {
+}
+
+
+If inserted in a file called MyClass.js, the inserted text would be
+
+
+// lowercase slug: myclass
+
+export default class MyClass {
+}
+
+
+TODO: Insert snippit at current indentation level
+
+TODO: Make it work on Windows
