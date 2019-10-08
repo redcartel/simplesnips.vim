@@ -30,7 +30,12 @@ fun s:InsertSnip(snipname)
     let l:currentLineNum = line(".")
 
     " paste the file contents below the current line
-    execute(":r " . g:simplesnipsDir . a:snipname)
+    try
+        execute(":r " . g:simplesnipsDir . a:snipname)
+    catch
+        echo "Snippit " . a:snipname . " not found"
+        return
+    endtry
 
     " replace <<FileSlug>> with the filename minus the extension
     " replace <<FileSlugLower>> with the slug in lowercase
