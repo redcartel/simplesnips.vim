@@ -6,7 +6,7 @@ by Carter Adams (https://github.com/redcartel/simplesnips.vim)
 
 Simple snippits. Add the following line to your config file:
 
-    `g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
+    `let g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
 
 Then the command:
 
