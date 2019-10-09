@@ -4,7 +4,7 @@ by Carter Adams (https://github.com/redcartel/simplesnips.vim)
 
 Simple snippits. Add the following line to your config file:
 
-    `g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
+    `let g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
 
 Then the command:
 
@@ -25,7 +25,6 @@ Similarly `<<FileSlugLower>>` is replaced by the name of the file in lowercase,
 minus the extension. So `myclass` in the above example.
 
 
-
 TODO: Insert at current indentation level
 
 TODO: Allow snippits organized in sub-folders
@@ -38,5 +37,3 @@ I don't want anything complicated like supporting the formats of other snippits
 plugins. This is for people who want a straightforward solution to writing a
 personal collection of templates in a simple format & use a plugin that doesn't
 pollute their omnicomplete.
-
-vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
