@@ -16,12 +16,12 @@ current line is not blank.
 
 Autocompletion of snippit names should be enabled.
 
-The only processing of snippit text is that the pattern `<<FileSlug>>` is
+The only processing of snippit text is that the pattern `__FileSlug__` is
 replaced by the current file's filename without the extension. So for instance
-`class <<FileSlug>>` would become `class MyClass` when inserted into a file 
+`class __FileSlug__` would become `class MyClass` when inserted into a file 
 called `MyClass.js`
 
-Similarly `<<FileSlugLower>>` is replaced by the name of the file in lowercase,
+Similarly `__FileSlugLower__` is replaced by the name of the file in lowercase,
 minus the extension. So `myclass` in the above example.
 
 

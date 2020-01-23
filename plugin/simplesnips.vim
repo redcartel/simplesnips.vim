@@ -15,12 +15,12 @@
 " TODO: If the need comes up, insert at current / correct indentation level.
 
 if !exists("g:simplesnipsDir")
-    let g:simplesnipsDir="$HOME/.vim/snips"
+    let g:simplesnipsDir="$HOME/.vim/simplesnips"
 endif
 
 " list contents of g:simplesnipsDir for the -complete arg of command
-" TODO: windows compatibility
-fun LsSnips(A, L, P)
+" TODO: windows compatibility (lol)
+function! LsSnips(A, L, P)
     let l:result = ''
     let l:regex = g:simplesnipsDir . '/\?\(.*\)'
     for path in globpath(g:simplesnipsDir, '*', 0, 1)
@@ -36,7 +36,7 @@ fun LsSnips(A, L, P)
 endfun
 
 " do the magic
-fun s:InsertSnip(snipname)
+function! s:InsertSnip(snipname)
     " get current line number
     let l:currentLineNum = line(".")
 
@@ -56,9 +56,9 @@ fun s:InsertSnip(snipname)
     " replace <<FileSlugLower>> with the slug in lowercase
     let l:fileSlug = expand("%:t:r")
     let l:fileSlugLower = tolower(l:fileSlug)
-    let l:fileSlugRegex = ":silent! %s/<<FileSlug>>/" . l:fileSlug . "/g"
-    let l:fileSlugRegexLower = ":silent! %s/<<FileSlugLower>>/" . 
-                \l:fileSlugLower . "/g"
+    let l:fileSlugRegex = ":silent! %s/__FileSlug__/" . l:fileSlug . "/g"
+    let l:fileSlugRegexLower = ":silent! %s/__FileSlugLower__/" . l:fileSlugLower . "/g"
+
     execute(l:fileSlugRegex)
     execute(l:fileSlugRegexLower)
 
@@ -70,4 +70,4 @@ fun s:InsertSnip(snipname)
 endfun
 
 " the command:
-command -nargs=1 -complete=custom,LsSnips Sn call s:InsertSnip(<q-args>)
+command! -nargs=1 -complete=custom,LsSnips Sn call s:InsertSnip(<q-args>)
