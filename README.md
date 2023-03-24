@@ -2,6 +2,9 @@
 
 by Carter Adams (https://github.com/redcartel/simplesnips.vim)
 
+*building a vim plugin was a bucket list item, I'm probably never going to update this again, 
+but maybe it will be useful for someone learning how to do this.*
+
 Simple snippits. Add the following line to your config file:
 
     `let g:simplesnipsDir = $HOME . "/path/to/your/snips/folder/"`
